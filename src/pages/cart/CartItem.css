@@ -1,0 +1,40 @@
+.cartItem{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2rem auto;
+    height: 12rem;
+    border: 2px solid black;
+    border-radius: 2rem;
+    position: relative;
+    width: 50%;
+    padding: 2rem;
+    
+   
+   
+   
+}
+.cartItem>img{
+    
+    width: 10rem;
+    height: 10rem;
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    position: relative;
+   justify-content: flex-start;
+   align-items: center;
+    margin: 2rem auto;
+    
+}
+
+.cart-amount{
+    width: 2rem;
+}
+
+input{
+    width: 2rem;
+}

@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Shop from "./pages/shop/Shop";
+import Cart from "./pages/cart/Cart";
+import { ShopContextProvider } from "./context/ShopContext";
+import { useState,useEffect } from "react";
+import axios from 'axios'
 function App() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products").then((response) => {
+      setData(response.data);
+      console.log(response.data);
+    })
+    .catch((error) => {
+        console.log(error);
+      });
+  },[]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ShopContextProvider data={data}>
+        <Router>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Shop data= {data} />} />
+            <Route path="/cart" element={<Cart data= {data} />} />
+          </Routes>
+        </Router>
+      </ShopContextProvider>
     </div>
   );
 }

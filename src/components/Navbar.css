@@ -1,0 +1,22 @@
+.navbar{
+
+    background-color: black;
+    padding: 1rem;
+    color: aliceblue;
+}
+.links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+    font-size: 25px;
+    width: 100%;
+
+    
+}
+
+.links a{
+    text-decoration: none;
+    color: white;
+    margin-left: 2px;
+}
